@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Matching Results</title>
-    <!-- Bootstrap CSS (Replit Theme) -->
-    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Chart.js -->
@@ -22,6 +22,18 @@
             max-height: 150px;
             overflow-y: auto;
         }
+        @media (max-width: 768px) {
+            .match-score {
+                font-size: 2rem;
+            }
+            .table-responsive {
+                font-size: 0.9rem;
+            }
+            .btn-sm {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.875rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -29,11 +41,11 @@
         <header class="pb-3 mb-4 border-bottom">
             <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center text-white">
-                    <i class="fas fa-file-search fa-2x me-3"></i>
+                    <i class="fas fa-file-search fa-2x me-3" aria-hidden="true"></i>
                     <span class="fs-4">Resume Shortlisting App</span>
                 </div>
-                <a href="/" class="btn btn-outline-secondary">
-                    <i class="fas fa-arrow-left me-2"></i>Back to Upload
+                <a href="/" class="btn btn-outline-secondary" role="button">
+                    <i class="fas fa-arrow-left me-2" aria-hidden="true"></i>Back to Upload
                 </a>
             </div>
         </header>
@@ -50,7 +62,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">Shortlisting Rate</h5>
                         <div class="py-2">
-                            <canvas id="shortlistChart"></canvas>
+                            <canvas id="shortlistChart" aria-label="Shortlisting rate chart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -64,8 +76,8 @@
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">Match Results</h5>
                             <div class="text-muted small">
-                                <i class="fas fa-circle text-success me-1"></i> Shortlisted (≥70%)
-                                <i class="fas fa-circle text-warning ms-3 me-1"></i> Below Threshold
+                                <i class="fas fa-circle text-success me-1" aria-hidden="true"></i> Shortlisted (≥70%)
+                                <i class="fas fa-circle text-warning ms-3 me-1" aria-hidden="true"></i> Below Threshold
                             </div>
                         </div>
                         
@@ -73,11 +85,11 @@
                             <table class="table table-hover align-middle mb-0">
                                 <thead>
                                     <tr>
-                                        <th>Rank</th>
-                                        <th>Resume</th>
-                                        <th>Status</th>
-                                        <th>Match Score</th>
-                                        <th>Details</th>
+                                        <th scope="col">Rank</th>
+                                        <th scope="col">Resume</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Match Score</th>
+                                        <th scope="col">Details</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -86,7 +98,7 @@
                                         <td class="text-center">{{ loop.index }}</td>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <i class="fas fa-file-alt fa-lg me-3 text-muted"></i>
+                                                <i class="fas fa-file-alt fa-lg me-3 text-muted" aria-hidden="true"></i>
                                                 <div>{{ result.filename }}</div>
                                             </div>
                                         </td>
@@ -100,21 +112,19 @@
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <span class="me-3">{{ result.score }}%</span>
-                                                <div class="progress flex-grow-1">
-                                                    <div class="progress-bar {% if result.shortlisted %}bg-success{% else %}bg-warning{% endif %}" 
-                                                         role="progressbar" 
-                                                         style="width: {{ result.score }}%" 
-                                                         aria-valuenow="{{ result.score }}" 
-                                                         aria-valuemin="0" 
-                                                         aria-valuemax="100"></div>
+                                                <div class="progress flex-grow-1" role="progressbar" aria-label="Match score progress" aria-valuenow="{{ result.score }}" aria-valuemin="0" aria-valuemax="100">
+                                                    <div class="progress-bar" 
+                                                         data-shortlisted="{{ result.shortlisted|lower }}"
+                                                         data-score="{{ result.score }}"></div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-sm btn-primary" 
                                                     data-bs-toggle="modal" 
-                                                    data-bs-target="#detailsModal{{ loop.index }}">
-                                                <i class="fas fa-chart-bar me-1"></i> View Analysis
+                                                    data-bs-target="#detailsModal{{ loop.index }}"
+                                                    aria-label="View analysis for {{ result.filename }}">
+                                                <i class="fas fa-chart-bar me-1" aria-hidden="true"></i> View Analysis
                                             </button>
                                         </td>
                                     </tr>
@@ -154,7 +164,7 @@
                                 </div>
                                 
                                 <div class="col-md-8">
-                                    <canvas id="scoreBreakdown{{ loop.index }}"></canvas>
+                                    <canvas id="scoreBreakdown{{ loop.index }}" aria-label="Score breakdown chart"></canvas>
                                 </div>
                             </div>
                             
@@ -182,8 +192,8 @@
             {% endfor %}
 
         {% else %}
-            <div class="alert alert-warning">
-                <i class="fas fa-exclamation-triangle me-2"></i> No results found. Please try uploading different files.
+            <div class="alert alert-warning" role="alert">
+                <i class="fas fa-exclamation-triangle me-2" aria-hidden="true"></i> No results found. Please try uploading different files.
             </div>
         {% endif %}
 
@@ -195,6 +205,7 @@
         </footer>
     </div>
 
+    <!-- Chart Data -->
     <script type="application/json" id="chart-data">
         {
             "shortlisted_count": {{ shortlisted_count }},
@@ -213,72 +224,98 @@
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
+    <!-- Chart Initialization -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const chartData = JSON.parse(document.getElementById('chart-data').textContent);
-            // Chart for shortlisting rate
-            const shortlistData = {
-                shortlisted: chartData.shortlisted_count,
-                belowThreshold: chartData.total_resumes - chartData.shortlisted_count
-            };
-            const ctx = document.getElementById('shortlistChart');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Shortlisted', 'Below Threshold'],
-                    datasets: [{
-                        data: [shortlistData.shortlisted, shortlistData.belowThreshold],
-                        backgroundColor: ['#198754', '#ffc107'],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
-                        }
+            try {
+                // Set progress bar widths and classes
+                document.querySelectorAll('.progress-bar[data-shortlisted][data-score]').forEach(bar => {
+                    bar.style.width = bar.dataset.score + '%';
+                    if (bar.dataset.shortlisted === 'true') {
+                        bar.classList.add('bg-success');
+                    } else {
+                        bar.classList.add('bg-warning');
                     }
-                }
-            });
-            
-            // Charts for individual score breakdowns
-            const resultsData = chartData.results.map(r => r.keyword_score);
-            const semanticData = chartData.results.map(r => r.semantic_score);
-            {% for result in results %}
-            const breakdownCtx{{ loop.index }} = document.getElementById('scoreBreakdown{{ loop.index }}');
-            new Chart(breakdownCtx{{ loop.index }}, {
-                type: 'bar',
-                data: {
-                    labels: ['Keyword Match', 'Semantic Similarity'],
-                    datasets: [{
-                        label: 'Score (%)',
-                        data: [resultsData[{{ loop.index0 }}], semanticData[{{ loop.index0 }}]],
-                        backgroundColor: ['#6f42c1', '#0d6efd'],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
+                });
+
+                const chartData = JSON.parse(document.getElementById('chart-data').textContent);
+                
+                // Initialize shortlisting rate chart
+                const shortlistChart = document.getElementById('shortlistChart');
+                if (shortlistChart) {
+                    const shortlistData = {
+                        shortlisted: chartData.shortlisted_count,
+                        belowThreshold: chartData.total_resumes - chartData.shortlisted_count
+                    };
+                    
+                    new Chart(shortlistChart, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Shortlisted', 'Below Threshold'],
+                            datasets: [{
+                                data: [shortlistData.shortlisted, shortlistData.belowThreshold],
+                                backgroundColor: ['#198754', '#ffc107'],
+                                borderWidth: 0
+                            }]
                         },
-                        title: {
-                            display: true,
-                            text: 'Score Breakdown'
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: true,
+                            plugins: {
+                                legend: {
+                                    position: 'bottom'
+                                }
+                            }
                         }
+                    });
+                }
+                
+                // Initialize score breakdown charts
+                const results = chartData.results;
+                for (let i = 0; i < results.length; i++) {
+                    const breakdownChart = document.getElementById(`scoreBreakdown${i + 1}`);
+                    if (breakdownChart) {
+                        const resultData = results[i];
+                        new Chart(breakdownChart, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Keyword Match', 'Semantic Similarity'],
+                                datasets: [{
+                                    data: [resultData.keyword_score, resultData.semantic_score],
+                                    backgroundColor: ['#0dcaf0', '#6f42c1'],
+                                    borderWidth: 0
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: true,
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        max: 100,
+                                        title: {
+                                            display: true,
+                                            text: 'Score (%)'
+                                        }
+                                    }
+                                },
+                                plugins: {
+                                    legend: {
+                                        display: false
+                                    }
+                                }
+                            }
+                        });
                     }
                 }
-            });
-            {% endfor %}
+            } catch (error) {
+                console.error('Error initializing charts:', error);
+                const errorAlert = document.createElement('div');
+                errorAlert.className = 'alert alert-danger m-3';
+                errorAlert.setAttribute('role', 'alert');
+                errorAlert.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i>Error loading charts. Please refresh the page.';
+                document.querySelector('.container').insertBefore(errorAlert, document.querySelector('.row'));
+            }
         });
     </script>
 </body>

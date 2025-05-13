@@ -1,6 +1,6 @@
-# Resume Shortlisting Application
+# Resume Screener
 
-A web-based application that matches candidate resumes against job descriptions using Natural Language Processing (NLP) techniques.
+A web-based application that automatically matches candidate resumes against job descriptions using Natural Language Processing (NLP) techniques. This tool helps recruiters and hiring managers quickly identify the most suitable candidates by analyzing both keyword matches and semantic similarity.
 
 ## Features
 
@@ -21,10 +21,34 @@ A web-based application that matches candidate resumes against job descriptions 
 - **NLP**: spaCy with en_core_web_sm model
 - **Document Processing**: pdfplumber, docx2txt
 
-## How to Use
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/resume-screener.git
+   cd resume-screener
+   ```
+
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Download the spaCy model:
+   ```bash
+   python -m spacy download en_core_web_sm
+   ```
+
+## Usage
 
 1. Start the application:
-   ```
+   ```bash
    python main.py
    ```
 
@@ -57,21 +81,39 @@ A web-based application that matches candidate resumes against job descriptions 
 ├── templates/
 │   ├── index.html            # Upload form template
 │   └── results.html          # Results display template
-└── uploads/                  # Directory for uploaded files
+├── uploads/                  # Directory for uploaded files
+├── requirements.txt          # Python dependencies
+└── test_upload.py           # Test script
 ```
 
 ## Algorithm Details
 
-- **Keyword Matching**: Extracts lemmatized keywords from both job description and resume, then calculates the percentage of job description keywords found in the resume.
-- **Semantic Similarity**: Uses spaCy's document similarity to measure the contextual similarity between the job description and resume.
-- **Final Score**: Weighted average of keyword match (50%) and semantic similarity (50%).
+The matching algorithm uses a combination of keyword matching and semantic similarity:
+
+1. **Keyword Matching (50% of final score)**:
+   - Extracts lemmatized keywords from both job description and resume
+   - Calculates the percentage of job description keywords found in the resume
+   - Handles variations of words (e.g., "programming" and "programmer")
+
+2. **Semantic Similarity (50% of final score)**:
+   - Uses spaCy's document similarity to measure contextual similarity
+   - Considers the overall meaning and context of the text
+   - Helps identify candidates with relevant experience even if exact keywords don't match
 
 ## Testing
 
-You can test the application using the provided test files:
+You can test the application using the provided test script:
 
-```python
+```bash
 python test_upload.py
 ```
 
 This will upload sample job description and resume files and verify the application's functionality.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
