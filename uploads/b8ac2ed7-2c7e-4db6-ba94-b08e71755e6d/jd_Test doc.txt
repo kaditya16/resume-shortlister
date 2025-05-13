@@ -1,0 +1,46 @@
+IT Web Developer Job Description
+We're seeking a talented Web Developer to join our growing team. This entry-level position is perfect for motivated individuals looking to start their career in web development and grow their technical skills in a supportive environment.
+About the Role
+As a Web Developer, you'll work closely with our design and development teams to build responsive, user-friendly websites and web applications. This role offers excellent opportunities for professional growth and hands-on experience with modern web technologies.
+Responsibilities
+
+Develop and maintain responsive websites and web applications
+Write clean, efficient code based on specifications
+Collaborate with designers to implement visual elements
+Test website functionality across various browsers and devices
+Debug issues and implement fixes
+Assist with website performance optimization
+Document development processes and solutions
+Stay updated on emerging web technologies and best practices
+
+Requirements
+
+Basic knowledge of HTML, CSS, and JavaScript
+Understanding of responsive design principles
+Familiarity with at least one modern framework (React, Angular, Vue.js)
+Basic understanding of version control systems (Git)
+Problem-solving skills and attention to detail
+Ability to work collaboratively in a team environment
+Strong desire to learn and grow professionally
+Portfolio demonstrating basic web development projects (personal or academic)
+
+Nice to Have (Not Required)
+
+Experience with any back-end language (PHP, Python, Node.js)
+Basic understanding of database concepts
+Knowledge of UI/UX principles
+Familiarity with Agile development methodologies
+
+What We Offer
+
+Structured training and mentorship
+Collaborative and supportive work environment
+Opportunities for professional development
+Competitive salary and benefits
+Modern work tools and resources
+
+Education
+
+Bachelor's degree in Computer Science, Web Development, or related field OR equivalent practical experience/bootcamp certification
+
+Join our team and start building your career in web development today!

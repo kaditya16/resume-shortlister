@@ -1,0 +1,47 @@
+JOHN DOE
+Software Developer
+email@example.com | (123) 456-7890 | linkedin.com/in/johndoe
+
+SUMMARY
+Experienced software developer with 4 years of experience in web development. Skilled in Python, JavaScript, and cloud technologies. Strong problem-solving abilities and passionate about creating efficient, scalable applications.
+
+EXPERIENCE
+
+Senior Software Developer
+ABC Tech, Inc., New York, NY
+June 2020 - Present
+- Developed and maintained RESTful APIs using Python and FastAPI, serving 10,000+ daily users
+- Implemented microservices architecture to improve system scalability, resulting in 40% performance improvement
+- Created CI/CD pipelines using GitHub Actions, reducing deployment time by 30%
+- Collaborated with UX designers to implement responsive UI using React.js
+
+Software Developer
+XYZ Solutions, Boston, MA
+May 2018 - May 2020
+- Built and maintained web applications using Python, Flask, and PostgreSQL
+- Implemented authentication and authorization systems using OAuth 2.0
+- Developed and optimized database queries, improving response time by 25%
+- Participated in Agile development processes including daily stand-ups and sprint planning
+
+SKILLS
+- Languages: Python, JavaScript, HTML, CSS, SQL
+- Frameworks: FastAPI, Flask, Django, React.js
+- Databases: PostgreSQL, MongoDB
+- Cloud: AWS (EC2, S3, Lambda), Docker, Kubernetes
+- Tools: Git, GitHub Actions, Jira, Confluence
+
+EDUCATION
+Bachelor of Science in Computer Science
+University of Technology, Boston, MA
+Graduated: May 2018, GPA: 3.8/4.0
+
+PROJECTS
+E-commerce Platform (github.com/johndoe/ecommerce)
+- Built a full-stack e-commerce application using Python, FastAPI, and React
+- Implemented secure payment processing with Stripe API
+- Deployed using Docker containers on AWS ECS
+
+Data Visualization Dashboard (github.com/johndoe/dashboard)
+- Developed a real-time data visualization dashboard using Python, Flask, and D3.js
+- Implemented WebSocket connections for live updates
+- Used Redis for caching to improve performance

@@ -1,0 +1,25 @@
+Software Engineer Job Description
+
+We are looking for a skilled Software Engineer to join our development team. The ideal candidate will have experience with Python, JavaScript, and cloud technologies.
+
+Key Responsibilities:
+- Design and implement new features for our web application
+- Write clean, maintainable, and efficient code
+- Collaborate with cross-functional teams to define and implement innovative solutions
+- Participate in code reviews and contribute to team's continuous improvement
+
+Requirements:
+- Bachelor's degree in Computer Science or related field
+- 3+ years of experience in software development
+- Strong proficiency in Python and JavaScript
+- Experience with web frameworks like FastAPI, Flask, or Django
+- Knowledge of database systems (SQL and NoSQL)
+- Familiarity with cloud platforms (AWS, GCP, or Azure)
+- Good understanding of software design patterns
+- Experience with Git version control
+
+Preferred Qualifications:
+- Experience with microservices architecture
+- Knowledge of container technologies (Docker, Kubernetes)
+- Understanding of CI/CD practices
+- Experience with front-end frameworks (React, Vue.js)
